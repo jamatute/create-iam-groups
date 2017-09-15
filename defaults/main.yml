@@ -1,23 +1,24 @@
 ---
 # defaults file for create-iam-groups
-iam_groups:
-  Admins:
-    managed_policy:
-      - arn:aws:iam::aws:policy/AdministratorAccess
-    users:
-  Developers:
-    managed_policy:
-      - arn:aws:iam::aws:policy/AmazonEC2FullAccess
-      - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
-      - arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess
-      - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-      - arn:aws:iam::aws:policy/AmazonRDSFullAccess
-      - arn:aws:iam::aws:policy/AmazonRoute53FullAccess
-      - arn:aws:iam::aws:policy/AmazonSQSFullAccess
-      - arn:aws:iam::aws:policy/AmazonS3FullAccess
-      - arn:aws:iam::aws:policy/AmazonVPCFullAccess
-    users:
-  Billing:
-    managed_policy:
-      - arn:aws:iam::aws:policy/job-function/Billing
-    users:
+iam:
+  groups:
+    Admins:
+      managed_policy:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      users:
+    Developers:
+      managed_policy:
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+        - arn:aws:iam::aws:policy/AmazonRDSFullAccess
+        - arn:aws:iam::aws:policy/AmazonRoute53FullAccess
+        - arn:aws:iam::aws:policy/AmazonSQSFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonVPCFullAccess
+      users:
+    Billing:
+      managed_policy:
+        - arn:aws:iam::aws:policy/job-function/Billing
+      users:

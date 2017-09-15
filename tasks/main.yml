@@ -7,7 +7,7 @@
     managed_policy: "{{ item.value.managed_policy }}"
     users: "{{ item.value.users | default('')}}"
     purge_users: true
-  with_dict: "{{ iam_groups }}"
+  with_dict: "{{ iam.groups }}"
   when: item.value.users.0 is defined
 
 - name: Create/Update IAM groups without users
@@ -16,5 +16,5 @@
     state: present
     managed_policy: "{{ item.value.managed_policy }}"
     purge_users: true
-  with_dict: "{{ iam_groups }}"
+  with_dict: "{{ iam.groups }}"
   when: item.value.users.0 is not defined
