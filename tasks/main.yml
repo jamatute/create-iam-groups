@@ -1,0 +1,20 @@
+---
+# tasks file for create-iam-groups
+- name: Create/Update IAM groups with users
+  iam_group:
+    name: "{{ item.key }}"
+    state: present
+    managed_policy: "{{ item.value.managed_policy }}"
+    users: "{{ item.value.users | default('')}}"
+    purge_users: true
+  with_dict: "{{ iam_groups }}"
+  when: item.value.users.0 is defined
+
+- name: Create/Update IAM groups without users
+  iam_group:
+    name: "{{ item.key }}"
+    state: present
+    managed_policy: "{{ item.value.managed_policy }}"
+    purge_users: true
+  with_dict: "{{ iam_groups }}"
+  when: item.value.users.0 is not defined
